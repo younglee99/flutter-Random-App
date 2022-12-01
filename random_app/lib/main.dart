@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'dice.dart';
-
+import 'list.dart';
 
 void main() {
-  runApp(const DiceApp());
+  runApp(const MyApp());
 }
 
-class DiceApp extends StatelessWidget {
-  const DiceApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -16,10 +15,10 @@ class DiceApp extends StatelessWidget {
         home: Scaffold(
       backgroundColor: Color.fromARGB(214, 255, 255, 255),
       appBar: AppBar(
-        title: Text("주사위"),
+        title: const Text("RandomApp"),
         backgroundColor: const Color.fromARGB(255, 93, 226, 243),
       ),
-      body: const DicePage(),
+      body: const List(),
     ));
   }
 }

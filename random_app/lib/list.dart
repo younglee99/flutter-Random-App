@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:random_app/coinpage.dart';
-import 'package:random_app/dicepage,dart';
+import 'package:random_app/coin.dart';
+import 'package:random_app/dice.dart';
 
 class List extends StatefulWidget {
   const List({super.key});
@@ -19,23 +19,28 @@ class _ListState extends State<List> {
           margin: const EdgeInsets.only(top: 10),
           padding: const EdgeInsets.all(5),
           alignment: Alignment.centerLeft,
-          child: TextButton(
+          child: TextButton.icon(
               style: ButtonStyle(
                 fixedSize: MaterialStateProperty.all(const Size(400, 80)),
               ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const DiceApp()),
+                  MaterialPageRoute(builder: (context) => const DicePage()),
                 );
               },
-              child: const Align(
+              icon: const Icon(
+                Icons.casino,
+                size: 50,
+                color: Color.fromARGB(255, 85, 139, 219),
+              ),
+              label: const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "주사위",
+                    "  주사위",
                     style: TextStyle(
                         color: Color.fromARGB(255, 85, 139, 219),
-                        fontSize: 40,
+                        fontSize: 30,
                         fontWeight: FontWeight.bold),
                   ))),
         ),
@@ -44,23 +49,28 @@ class _ListState extends State<List> {
           margin: const EdgeInsets.only(top: 10),
           padding: const EdgeInsets.all(5),
           alignment: Alignment.centerLeft,
-          child: TextButton(
+          child: TextButton.icon(
               style: ButtonStyle(
                 fixedSize: MaterialStateProperty.all(const Size(400, 80)),
               ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const CoinApp()),
+                  MaterialPageRoute(builder: (context) => const CoinPage()),
                 );
               },
-              child: const Align(
+              icon: const Icon(
+                Icons.paid_outlined,
+                size: 50,
+                color: Color.fromARGB(255, 131, 211, 77),
+              ),
+              label: const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "동전/코인",
+                    "  동전/코인",
                     style: TextStyle(
                         color: Color.fromARGB(255, 131, 211, 77),
-                        fontSize: 40,
+                        fontSize: 30,
                         fontWeight: FontWeight.bold),
                   ))),
         ),
