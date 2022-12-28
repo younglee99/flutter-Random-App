@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      backgroundColor: Color.fromARGB(214, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(214, 255, 255, 255),
       appBar: AppBar(
         title: const Text("RandomApp"),
         backgroundColor: const Color.fromARGB(255, 93, 226, 243),

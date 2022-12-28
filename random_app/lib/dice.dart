@@ -1,4 +1,7 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
+import 'dicenumpage.dart';
 
 class DicePage extends StatefulWidget {
   const DicePage({super.key});
@@ -7,10 +10,8 @@ class DicePage extends StatefulWidget {
   State<DicePage> createState() => _DicePageState();
 }
 
-enum Number { one, two, three, four }
-
 class _DicePageState extends State<DicePage> {
-  Number? _number = Number.one;
+  int _value = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,72 +26,42 @@ class _DicePageState extends State<DicePage> {
           },
         ),
       ),
-      body: Center(
-        child: Row(
-          children: <Widget>[
-            Flexible(
-              fit: FlexFit.loose,
-              child: ListTile(
-                contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                title: const Text('1'),
-                leading: Radio<Number>(
-                  value: Number.one,
-                  groupValue: _number,
-                  onChanged: (Number? value) {
-                    setState(() {
-                      _number = value;
-                    });
-                  },
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for (int i = 0; i < 4; i++)
+                Row(
+                  children: [
+                    Radio(
+                      value: i + 1,
+                      groupValue: _value,
+                      onChanged: (value) {
+                        setState(() {
+                          _value = value!;
+                        });
+                      },
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text((i + 1).toString()),
+                  ],
                 ),
-              ),
-            ),
-            Flexible(
-              fit: FlexFit.loose,
-              child: ListTile(
-                title: const Text('2'),
-                leading: Radio<Number>(
-                  value: Number.two,
-                  groupValue: _number,
-                  onChanged: (Number? value) {
-                    setState(() {
-                      _number = value;
-                    });
-                  },
-                ),
-              ),
-            ),
-            Flexible(
-              fit: FlexFit.loose,
-              child: ListTile(
-                title: const Text('3'),
-                leading: Radio<Number>(
-                  value: Number.three,
-                  groupValue: _number,
-                  onChanged: (Number? value) {
-                    setState(() {
-                      _number = value;
-                    });
-                  },
-                ),
-              ),
-            ),
-            Flexible(
-              fit: FlexFit.loose,
-              child: ListTile(
-                title: const Text('4'),
-                leading: Radio<Number>(
-                  value: Number.four,
-                  groupValue: _number,
-                  onChanged: (Number? value) {
-                    setState(() {
-                      _number = value;
-                    });
-                  },
-                ),
-              ),
-            ),
-          ],
-        ),
+            ],
+          ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const DicenumPage()),
+                );
+              },
+              child: const Text("선택")),
+        ],
       ),
     );
   }
