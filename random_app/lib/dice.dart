@@ -15,7 +15,7 @@ class _DicePageState extends State<DicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(214, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         title: const Text("주사위"),
         backgroundColor: const Color.fromARGB(255, 93, 226, 243),
@@ -42,6 +42,7 @@ class _DicePageState extends State<DicePage> {
                       onChanged: (value) {
                         setState(() {
                           _value = value!;
+                          // ignore: avoid_print
                         });
                       },
                     ),
@@ -57,7 +58,8 @@ class _DicePageState extends State<DicePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const DicenumPage()),
+                  MaterialPageRoute(
+                      builder: (context) => DicenumPage(dicecnt: _value)),
                 );
               },
               child: const Text("선택")),
